@@ -2,7 +2,13 @@ package com.tuf.arrays.misc;
 
 public class findMissAndReap {
 	
-public int[] findMissingAndRepeatedValues(int[][] grid) {
+	/*
+	 * limitations
+	 * the n and m
+	 * 0<=arr[i]<= nxm+1
+	 */
+	
+public static int[]  findMissingAndRepeatedValues(int[][] grid) {
         
         int n = grid.length;
         int m = grid[0].length;
@@ -35,7 +41,9 @@ public int[] findMissingAndRepeatedValues(int[][] grid) {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		int[][] arr = {{10,11,12},{13,14,15},{15,16,18}};
+		int[] ans = findMissingAndRepeatedValues(arr);
+		System.out.println("miss: "+ans[0] + "reap "+ans[1]);
 	}
 
 }

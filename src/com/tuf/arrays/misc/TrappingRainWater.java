@@ -2,7 +2,9 @@ package com.tuf.arrays.misc;
 
 public class TrappingRainWater {
 
-	
+	/*
+	 * On, S2n
+	 */
 	public static int trappingWater(int arr[])
 	{
 		int n = arr.length;
@@ -31,9 +33,45 @@ public class TrappingRainWater {
 		return ans;
 	}
 	
+	/*
+	 * On, S1
+	 */
+	public static int trap(int[] arr)
+	{
+		int left=0,right=arr.length-1;
+		int ans=0;
+		int leftMax=0;
+		int rightMax=0;
+		while(left<=right)
+		{
+			if(arr[left]<=arr[right])
+			{
+				if(arr[left]>=leftMax)
+				{
+					leftMax = arr[left];
+				}
+				else
+					ans += leftMax - arr[left];
+				left++;
+			}
+			else
+			{
+				if(arr[right]>=rightMax)
+				{
+					rightMax = arr[right];
+				}
+				else
+					ans += rightMax - arr[right];
+				right--;
+			}
+		}
+		return ans;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		int arr[] = {0,1,0,2,1,0,1,3,2,1,2,1};
+        System.out.println("The total trapped water is " + trap(arr));
 	}
 
 }

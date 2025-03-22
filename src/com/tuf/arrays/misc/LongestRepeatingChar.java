@@ -13,7 +13,7 @@ public class LongestRepeatingChar {
 		while(right<n)
 		{
 			if(hm.containsKey(s.charAt(right)))
-				left = Math.max(left, hm.get(s.charAt(i)+1));
+				left = Math.max(left, hm.get(s.charAt(right)+1));
 			else
 				hm.put(s.charAt(right), 1);
 			

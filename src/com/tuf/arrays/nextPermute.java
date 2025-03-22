@@ -1,5 +1,6 @@
 package com.tuf.arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -42,6 +43,7 @@ public class nextPermute {
 			{
 				if(arr.get(i)>arr.get(flag))
 				{
+					//Collections.swap(arr, i, flag);
 					int tmp = arr.get(i);
 					arr.set(i, arr.get(i));
 					arr.set(i, tmp);
@@ -49,10 +51,11 @@ public class nextPermute {
 				}
 			}
 			
-			List<Integer> sublist = arr.subList(i + 1, n);
-	        Collections.reverse(sublist);
-
-	        return arr;
+			List<Integer> sublist1 = new ArrayList(arr.subList(i + 1, n));
+			List<Integer> sublist2 = new ArrayList(arr.subList(0, i+1));
+	        Collections.reverse(sublist1);
+	        sublist2.addAll(sublist1);
+	        return sublist2;
 		}
 	}
 

@@ -24,17 +24,24 @@ public class ConsecArray {
 		while(itr.hasNext())
 		{
 			int x = itr.next();
-			while(hs.contains(x-1))
+			if(hs.contains(x-1))
 			{
-				cnt++;
-				ans = Math.max(ans, cnt);
-				x--;
+				cnt=1;
+				int t = x;
+				while(hs.contains(t+1))
+				{
+					t++;
+					cnt++;
+				}
+				ans=Math.max(ans, cnt);
 			}
-			cnt=1;
 		}
 		return ans;
 	}
 
+	/*
+	 * O N + O 2*N = O 3N = O N
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int arr[] = {100, 200, 1, 3, 2, 4};
