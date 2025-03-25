@@ -17,6 +17,8 @@ public class findKpermute {
 
             res.add(str);
             return;
+            
+            
         }
         for (int i = index; i < s.length; i++) {
             swap(s, i, index);
