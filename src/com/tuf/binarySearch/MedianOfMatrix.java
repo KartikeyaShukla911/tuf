@@ -74,5 +74,98 @@ Mathematically, smaller_equal_in_row = upperBound(matrix[row], mid)
 	        int ans = median(matrix, m, n);
 	        System.out.println("The median element is: " + ans);
 	    }
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    /*
+	     * find matrix median of row wise sorted;
+	     */
 
+	    /*
+	     * take low as arr[i][0] and high as arr[0][i];
+	     * ans = nxm /2, use loop, for low<=high
+	     * check if mid == low + high /2;
+	     * count Number of elements, smaller elements
+	     * 
+	     */
+	    
+	    public static int Median(int[][] mat,int n,int m)
+	    {
+	    	if(n==0 && m==0)
+	    		return 0;
+	    	if(n==1 && m==1)
+	    		return 1;
+	    	
+	    	int low=0,high=0,i,j;
+	    	for(i=0;i<n;i++)
+	    	{
+	    		low = Math.min(mat[i][0],low);
+	    	}
+	    	for(i=0;i<m;i++)
+	    	{
+	    		high = Math.max(mat[0][i],high);
+	    	}
+	    	
+	    	int required = (n *m) /2;
+	    	while(low<=high)
+	    	{
+	    		int mid = (low +high)/2;
+	    		
+	    		int cntSmall = countSmall(mid,mat,n,m);
+	    		if(cntSmall <=required)
+	    			low = mid+1;
+	    		else
+	    			high = mid-1;
+	    	}
+	    	return low;
+	    }
+	    
+	    public static int countSmall(int mid,int[][] mat,int n,int m)
+	    {
+	    	int i;
+	    	int ans=0;
+	    	for(i=0;i<n;i++)
+	    	{
+	    		ans += upperBond(mat[i],mid,m);
+	    	}
+	    	return ans;
+	    }
+	    
+	    public static int upperBond(int[] arr,int mid,int cols)
+	    {
+	    	int low=0,high =cols,ans=0;
+	    	while(low<=high)
+	    	{
+	    		int midS = (low+high)>>1;
+	    		if(midS==mid)
+	    		{
+	    			ans=mid;
+	    			low=mid+1;
+	    		}
+	    		else if (midS>mid)
+	    			high=mid;
+	    		else
+	    			low=mid+1;
+	    	}
+	    	return ans;
+	    }
 }

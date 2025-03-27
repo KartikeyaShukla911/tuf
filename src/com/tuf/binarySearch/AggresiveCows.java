@@ -1,5 +1,7 @@
 package com.tuf.binarySearch;
 
+import java.util.Arrays;
+
 public class AggresiveCows {
 
 	 public static boolean canWePlace(int[] stalls, int dist, int cows) {
@@ -40,9 +42,6 @@ public class AggresiveCows {
 	     * O(NlogN) + O(N * log(max(stalls[])-min(stalls[]))
 	     */
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-	}
 
 }

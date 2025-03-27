@@ -42,12 +42,6 @@ public class allocatePages {
         int ans = findPages(arr, n, m);
         System.out.println("The answer is: " + ans);
     }
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-	
 	
 	/*
 	 * min pages, allocated pages
