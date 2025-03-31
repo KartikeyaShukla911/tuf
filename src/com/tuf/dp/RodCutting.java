@@ -11,7 +11,7 @@ public class RodCutting {
 		
 		int n = arr.length;
 		
-		int[][] dp = new int [n][n+1];
+		int[] dp = new int [n];
 		
 		for(int[] row : dp)
 		{
@@ -45,13 +45,13 @@ public class RodCutting {
 		int dp[] = new int[n+1];
 		int i,j;
 		
-		for(i=1;i<n;i++)
-		{
-			for(j=0;j<=i;j++)
-			{
-				dp[i] = Math.max(dp[i], arr[i-1] + dp[i-j]);
-			}
-		}
+		for (int i = 1; i <= n; i++) {
+            int maxValue = Integer.MIN_VALUE;
+            for (int j = 1; j <= i; j++) {
+                maxValue = Math.max(maxValue, price[j - 1] + dp[i - j]);
+            }
+            dp[i] = maxValue;
+        }
 		return dp[n];
 	}
 	

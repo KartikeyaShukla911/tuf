@@ -1,7 +1,6 @@
 package com.tuf.graph;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -61,5 +60,47 @@ public class TopologicalSortUsingDfs {
 				dfs(temp,adj,vis,st);
 		}
 		st.add(idx);
+	}
+	
+	/*
+	 * Time Complexity: O(N+E) 
+
+N = Number of node , E = Number of Edges
+
+Space Complexity: O(N) + O(N
+	 */
+	
+	public static int[] findTopoSort(List<List<Integer>> adjList, int v,int[] visited )
+	{
+		if(v==0)
+			return;
+		
+		Stack<Integer> st = new Stack();
+		
+		int i;
+		for(i=0;i<v;i++)
+		{
+			if(visited[i]==0)
+			{
+				dfsTopo(adjList,v,st,visited);
+			}
+		}
+		
+		while(!st.isEmpty())
+		{
+			ans.add(st.pop());
+		}
+		return ans;
+	}
+	
+	public static void dfsTopo(List<List<Integer>> adjList,int v,Stack<Integer> st,int[] visited)
+	{
+		visited[v]=1;
+		for(int edge : adjList.get(v))
+		{
+			if(visited[edge]==0)
+				dfsTopo(adjList,v,st,visited);
+		}
+		st.push(v);
 	}
 }

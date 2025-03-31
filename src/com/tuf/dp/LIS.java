@@ -4,6 +4,14 @@ import java.util.Arrays;
 
 public class LIS {
 	
+	/*
+	 * Time Complexity: O(N*N)
+
+Reason: There are N*N states therefore at max ‘N*N’ new problems will be solved.
+
+Space Complexity: O(N*N) + O(N)
+	 */
+	
 	public static int LIS(int arr[],int n ,int idx,int prev,int[][] dp)
 	{
 		if(idx>=n)

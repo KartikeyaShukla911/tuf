@@ -45,6 +45,12 @@ public class DetectCycleBfsGraph {
         return false;
 	}
 	
+	/*
+	 * Time Complexity: O(N + 2E) + O(N), Where N = Nodes, 2E is for total degrees as we traverse all adjacent nodes. In the case of connected components of a graph, it will take another O(N) time.
+
+Space Complexity: O(N) + O(N) ~ O(N), Space for queue data structure and visited array.
+	 */
+	
 	public static boolean checkCycle(ArrayList<ArrayList<Integer>> adj, int idx, boolean[] vis,int[] parent)
 	{
 		vis[idx]=true;

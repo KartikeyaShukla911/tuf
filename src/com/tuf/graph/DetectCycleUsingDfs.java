@@ -42,7 +42,8 @@ public class DetectCycleUsingDfs {
 		{
 			if(vis[idx]==0)
 			{
-				dfsUtil(adj,x,vis,parent);
+				if(dfsUtil(adj,x,vis,idx)==true)
+					return true;
 			}
 			else
 			{

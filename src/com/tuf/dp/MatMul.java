@@ -25,12 +25,14 @@ public class MatMul {
 		if(low==high)
 			return 0;
 		
-		int min = Integer.MIN_VALUE;
+		int min = Integer.MAX_VALUE;
 		
 		int k;
-		for(k=low;k<high;k++)
+		for(k=low;k<=high-1;k++)
 		{
 			min = Math.min(min, (f(arr,low,k) + f(arr,k+1,high) + arr[low-1]*arr[high]*arr[k]));
+		
+			dp[low][high] = Math.min(mini,ans);
 		}
 		return min;
 	}
